@@ -1,0 +1,21 @@
+# Environment
+env_name: "Pendulum-v1"
+max_episodes: 500
+
+# Training
+batch_size: 64
+buffer_size: 100000
+gamma: 0.99
+learning_rate: 0.0003
+
+# Network
+hidden_sizes: [256, 256]
+
+# Evaluation
+eval_every: 50
+num_seeds: 3
+seeds: [42, 123, 456]
+
+# Logging
+save_results: true
+results_dir: "results"

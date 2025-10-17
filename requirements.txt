@@ -1,0 +1,22 @@
+# Core RL and Deep Learning
+torch>=2.0.0
+gymnasium>=0.29.0  # Modern version of OpenAI Gym
+numpy>=1.24.0
+
+# Visualization
+matplotlib>=3.7.0
+seaborn>=0.12.0
+
+# Configuration and Logging
+pyyaml>=6.0
+tensorboard>=2.13.0
+
+# Utilities
+tqdm>=4.65.0  # Progress bars
+pandas>=2.0.0  # Data handling
+
+# Optional but recommended
+scipy>=1.10.0  # Statistical analysis
+
+# Approximate Nearest Neighbor Search (for Wolpertinger DDPG)
+faiss-cpu>=1.7.4  # Use faiss-gpu>=1.7.4 for GPU support

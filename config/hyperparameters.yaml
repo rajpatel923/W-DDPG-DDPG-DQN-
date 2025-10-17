@@ -1,0 +1,62 @@
+# Hyperparameters Configuration for RL Algorithms Comparison
+# Keep these consistent across all algorithms for fair comparison
+
+# Environment Settings
+environment:
+  discrete: "CartPole-v1"      # For DQN
+  continuous: "Pendulum-v1"    # For DDPG and W-DDPG
+  max_episode_steps: 500
+
+# Training Settings
+training:
+  num_episodes: 500            # Total episodes for training
+  max_steps_per_episode: 500   # Max steps per episode
+  random_seeds: [42, 123, 456] # Multiple seeds for statistical significance
+  eval_frequency: 50           # Evaluate every N episodes
+  eval_episodes: 10            # Number of episodes for evaluation
+
+# Common Hyperparameters
+common:
+  batch_size: 64
+  replay_buffer_size: 100000
+  gamma: 0.99                  # Discount factor
+  learning_starts: 1000        # Steps before learning starts
+
+# DQN Specific
+dqn:
+  learning_rate: 0.001
+  epsilon_start: 1.0
+  epsilon_end: 0.01
+  epsilon_decay: 0.995
+  target_update_frequency: 10  # Update target network every N episodes
+  hidden_dims: [128, 128]      # Network architecture
+
+# DDPG Specific
+ddpg:
+  actor_lr: 0.0001
+  critic_lr: 0.001
+  tau: 0.005                   # Soft update parameter
+  noise_std: 0.2               # Exploration noise standard deviation
+  noise_clip: 0.5              # Noise clipping range
+  actor_hidden_dims: [256, 256]
+  critic_hidden_dims: [256, 256]
+
+# Weighted DDPG Specific (inherits from DDPG)
+w_ddpg:
+  actor_lr: 0.0001
+  critic_lr: 0.001
+  tau: 0.005
+  noise_std: 0.2
+  noise_clip: 0.5
+  actor_hidden_dims: [256, 256]
+  critic_hidden_dims: [256, 256]
+  # W-DDPG specific parameters
+  weight_temp: 0.1             # Temperature parameter for weight calculation
+
+# Logging
+logging:
+  log_dir: "results/logs"
+  model_dir: "results/models"
+  plot_dir: "results/plots"
+  save_frequency: 100          # Save model every N episodes
+  tensorboard: true
